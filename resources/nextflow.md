@@ -29,7 +29,25 @@ Let's use the [eQTL-Catalogue/qtlmap](https://github.com/eQTL-Catalogue/qtlmap) 
 
 ```bash
 git clone https://github.com/eQTL-Catalogue/qtlmap.git
+cd qtlmap
 ```
+
+## Install Nextlfow
+
+Installing Nextflow is [super easy](https://www.nextflow.io/docs/latest/getstarted.html), you just need to make sure beforehand that the correct Java version is available by loading the corrsponding module.
+  
+```bash
+ module load java-1.8.0_40
+ wget -qO- https://get.nextflow.io | bash
+```
+
+And test if it worked:
+
+```bash
+./nextflow -version
+```
+
+If you wish, you can copy the nextflow executable to a folder where you keep all of your other software and add it to your PATH, but keeping it in the workflow directory is also fine.
 
 ## Step 3A - log into the stage1 node of the HPC and start screen
 This step should only be necessary when running the workflow for the first time after cloning it, because on the first excution Nextflow downloads the Docker container image and builds a Singularity container based on it. All subsequent executions will use the the cached version of the container.
@@ -44,6 +62,44 @@ Once you have logged in, you can start screen. This will allow you to log out of
 screen
 ```
 You can exit the screen session with `Ctrl + A + D` and you can resume it with `screen -r`. All the processes that you start in screen will keep running after you exit with `Ctrl + A + D`.
+
+## Execute the qtlmap workflow with test input data
+
+Change to the workflow directory
+
+```bash
+cd qtlmap
+```
+
+Load the required modules (Java and Singularity).
+
+```bash
+ module load java-1.8.0_40
+ module load singularity/3.5.3
+```
+
+Finally, the following command should start the workflow with the test data and you should see progress on screen. See the qtlmap workflow [documentation](https://github.com/eQTL-Catalogue/qtlmap/blob/master/docs/usage.md) for more options.
+
+```bash
+nextflow run main.nf -profile tartu_hpc\
+   --studyFile testdata/multi_test.tsv\
+    --is_imputed FALSE\
+    --varid_rsid_map_file testdata/varid_rsid_map.tsv.gz\
+    --n_batches 25
+```
+
+If the workflow execution stops some reason, then you can restart it with the -resume options. This ensures that all of the steps have already been completed will not be rerun.
+
+```bash
+nextflow run main.nf -profile tartu_hpc\
+   --studyFile testdata/multi_test.tsv\
+    --is_imputed FALSE\
+    --varid_rsid_map_file testdata/varid_rsid_map.tsv.gz\
+    --n_batches 25\
+    -resume
+```
+
+
 
 
 
