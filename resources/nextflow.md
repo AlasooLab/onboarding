@@ -32,7 +32,7 @@ git clone https://github.com/eQTL-Catalogue/qtlmap.git
 cd qtlmap
 ```
 
-## Install Nextlfow
+## Step 3 - Install Nextlfow
 
 Installing Nextflow is [super easy](https://www.nextflow.io/docs/latest/getstarted.html), you just need to make sure beforehand that the correct Java version is available by loading the corrsponding module.
   
@@ -49,7 +49,7 @@ And test if it worked:
 
 If you wish, you can copy the nextflow executable to a folder where you keep all of your other software and add it to your PATH, but keeping it in the workflow directory is also fine.
 
-## Step 3A - log into the stage1 node of the HPC and start screen
+## Step 4 - log into the stage1 node of the HPC and start screen
 This step should only be necessary when running the workflow for the first time after cloning it, because on the first excution Nextflow downloads the Docker container image and builds a Singularity container based on it. All subsequent executions will use the the cached version of the container.
 
 ```bash
@@ -63,7 +63,7 @@ screen
 ```
 You can exit the screen session with `Ctrl + A + D` and you can resume it with `screen -r`. All the processes that you start in screen will keep running after you exit with `Ctrl + A + D`.
 
-## Execute the qtlmap workflow with test input data
+## Step 5 - Execute the qtlmap workflow with test input data
 
 Change to the workflow directory
 
@@ -98,6 +98,20 @@ nextflow run main.nf -profile tartu_hpc\
     --n_batches 25\
     -resume
 ```
+
+## Step 6 - Monitoring progrss
+
+You can exit the screen session by pressing `Ctrl + A + D`. To see all of your SLURM jobs that are currently running, use the squeue command:
+
+```bash
+squeue -u <username>
+```
+
+# Other things to keep in mind
+
+## Work directory
+Since each Nextflow task runs within its own subdirectory where all of the input and output files are stored, the Nextflow work directory can get very big very quickly! Make sure that you periodically delete the `work` firectory after you have finished running your workflow. When running the [eQTL-Catalogue/rnaseq](https://github.com/eQTL-Catalogue/rnaseq) workflow on a large dataset, my work directory once exceeded 50Tb!
+
 
 
 
