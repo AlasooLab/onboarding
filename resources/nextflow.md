@@ -99,7 +99,7 @@ nextflow run main.nf -profile tartu_hpc\
     -resume
 ```
 
-## Step 6 - Monitoring progrss
+## Step 6 - Monitoring progress
 
 You can exit the screen session by pressing `Ctrl + A + D`. To see all of your SLURM jobs that are currently running, use the squeue command:
 
