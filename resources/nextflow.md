@@ -109,7 +109,7 @@ squeue -u <username>
 
 # Other things to keep in mind
 
-## Work directory
+## Size of the work directory
 Since each Nextflow task runs within its own subdirectory where all of the input and output files are stored, the Nextflow work directory can get very big very quickly! Make sure that you periodically delete the `work` firectory after you have finished running your workflow. When running the [eQTL-Catalogue/rnaseq](https://github.com/eQTL-Catalogue/rnaseq) workflow on a large dataset, my work directory once exceeded 50Tb!
 
 
