@@ -112,6 +112,9 @@ squeue -u <username>
 ## Size of the work directory
 Since each Nextflow task runs within its own subdirectory where all of the input and output files are stored, the Nextflow work directory can get very big very quickly! Make sure that you periodically delete the `work` firectory after you have finished running your workflow. When running the [eQTL-Catalogue/rnaseq](https://github.com/eQTL-Catalogue/rnaseq) workflow on a large dataset, my work directory once exceeded 50Tb!
 
+## Failing jobs
+Sometimes jobs fail on the HPC for no obvious reason, especially if its a long workflow with hundreds or thousands of steps. Before additional troubleshooting, it is usually worth trying to rerun the workflow with the `-resume` flag to see if the problem persists. 
+
 
 
 
