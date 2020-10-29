@@ -11,7 +11,7 @@ However, trying to execute these workflows for the first time can be a bit overw
 
 Key advantages of using Nextflow workflows over standard SLURM for executing workflows:
 * All of the software dependencies are contained within one or more Docker containers, no need to install any software!
-* No need to manually track, which jobs have already completed and which ones you still need to run.
+* No need to manually keep track of the jobs have already completed and the ones you still need to be run.
 
 ## Step 1 - log into the HPC
 
