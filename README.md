@@ -5,5 +5,6 @@ This repository is home to the onboarding information for the [Alasoo group](htt
 
 * [Executing Nextflow workflows at the University of Tartu HPC](resources/nextflow.md)
 * [Best Practices for Working with Controlled Access Human Genetic Data](resources/controlled_access_data.md)
+* [Building and using Docker containers with Singularity](resources/building_containers.md)
 
 Inspired by a similary repository by the [Greene Lab](https://github.com/greenelab/onboarding)
