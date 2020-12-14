@@ -34,7 +34,7 @@ cd qtlmap
 
 ## Step 3 - Install Nextlfow
 
-Installing Nextflow is [super easy](https://www.nextflow.io/docs/latest/getstarted.html), you just need to make sure beforehand that the correct Java version is available by loading the corrsponding module.
+Installing Nextflow is [super easy](https://www.nextflow.io/docs/latest/getstarted.html), you just need to make sure beforehand that the correct Java version is available by loading the corrsponding module. Note that rocket.hpc.ut.ee has very strict RAM limits so you might need to log into stage1 (see Step 4) before you are able to install Nextflow.
   
 ```bash
  module load java-1.8.0_40
