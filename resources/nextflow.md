@@ -83,7 +83,10 @@ Finally, the following command should start the workflow with the test data and 
 ```bash
 nextflow run main.nf -profile tartu_hpc\
    --studyFile testdata/multi_test.tsv\
-    --is_imputed FALSE\
+    --vcf_has_R2_field FALSE\
+    --run_nominal\
+    --run_permutation\
+    --run_susie\
     --varid_rsid_map_file testdata/varid_rsid_map.tsv.gz\
     --n_batches 25
 ```
@@ -93,7 +96,10 @@ If the workflow execution stops some reason, then you can restart it with the -r
 ```bash
 nextflow run main.nf -profile tartu_hpc\
    --studyFile testdata/multi_test.tsv\
-    --is_imputed FALSE\
+    --vcf_has_R2_field FALSE\
+    --run_nominal\
+    --run_permutation\
+    --run_susie\
     --varid_rsid_map_file testdata/varid_rsid_map.tsv.gz\
     --n_batches 25\
     -resume
