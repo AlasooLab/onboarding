@@ -9,7 +9,7 @@ This repository is home to the onboarding information for the [Alasoo group](htt
 
 Inspired by a similary repository by the [Greene Lab](https://github.com/greenelab/onboarding)
 
-## Opinionated list of software tools
+## Opinionated list of useful software tools
 
 * [Forklift](https://binarynights.com/) - Transfering and editing files over SSH
 * [Visual Studio Code](https://code.visualstudio.com/) - A good text editor for code.
