@@ -27,3 +27,28 @@ Inspired by a similary repository by the [Greene Lab](https://github.com/greenel
   * [filesize](https://marketplace.visualstudio.com/items?itemName=mkxml.vscode-filesize)
   * [Insert Numbers](https://marketplace.visualstudio.com/items?itemName=Asuka.insertnumbers)
   * [GitLens](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens)
+
+
+## Bash aliases and styling 
+```bash
+# User specific aliases and functions
+alias squeme='squeue -u {your_username}'
+alias scancelme='scancel -u {your_username}'
+alias lll='ls -lah'
+alias llt='ls -lct'
+alias a='echo "------------Your aliases------------";alias'
+alias ldir='ls -l | grep ^d'
+alias ..='cd ..'
+alias ...='cd ../../'
+alias topme='top -U {your_username}'
+alias sc='screen -r'
+alias lss='less -S'
+alias stg='ssh stage1'
+alias loadmods='module load java-1.8.0_40; module load singularity/3.5.3; module load nextflow'
+track_jobid() {
+  sacct -j "$1" --format=User,JobID,Jobname,partition,state,time,start,end,elapsed,MaxRss,MaxVMSize,nnodes,ncpus,nodelist,ExitCode
+}
+
+export PS1='\[\033[1;32m\][\u@\h]\[\033[1;34m\] \W\[\033[1;34m\] \$ \[\033[0m\]'
+export NXF_OPTS='-Xms1g -Xmx4g'
+```
