@@ -92,7 +92,7 @@ Now save this script into a file named `run_nextflow.sh` and submit the job to S
 sbatch run_nextflow.sh
 ```
 
-Finally, the following command should start the workflow with the test data. To see the workflow process on screen, you can open the workflow output file with  `tail -f slurm-XXXXXX.out`, where XXXXXX is to job id assigned to Nextflow job by SLURM, eg:
+Once the jobs starts, you can follow its progress by opening the workflow output file with `tail -f slurm-XXXXXX.out`, where XXXXXX is to job id assigned to Nextflow job by SLURM, eg:
 
 ```bash
 tail -f slurm-23146184.out
