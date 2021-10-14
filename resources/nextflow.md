@@ -49,21 +49,7 @@ And test if it worked:
 
 If you wish, you can copy the nextflow executable to a folder where you keep all of your other software and add it to your PATH, but keeping it in the workflow directory is also fine.
 
-## Step 4 - log into the stage1 node of the HPC and start screen
-This step should only be necessary when running the workflow for the first time after cloning it, because on the first excution Nextflow downloads the Docker container image and builds a Singularity container based on it. All subsequent executions will use the the cached version of the container.
-
-```bash
-ssh stage1
-```
-
-Once you have logged in, you can start screen. This will allow you to log out of the node without killing the nextflow process that is running.
-
-```bash
-screen
-```
-You can exit the screen session with `Ctrl + A + D` and you can resume it with `screen -r`. All the processes that you start in screen will keep running after you exit with `Ctrl + A + D`.
-
-## Step 5 - Execute the qtlmap workflow with test input data
+## Step 4 - Use SLURM to execute the qtlmap workflow with test input data
 
 Change to the workflow directory
 
@@ -71,16 +57,25 @@ Change to the workflow directory
 cd qtlmap
 ```
 
-Load the required modules (Java and Singularity).
+Prepare a [SLURM script](https://docs.hpc.ut.ee/cluster/quickstart/) to start Nextflow as a SLURM job:
 
 ```bash
- module load java-1.8.0_40
- module load singularity/3.5.3
-```
+#!/bin/bash
 
-Finally, the following command should start the workflow with the test data and you should see progress on screen. See the qtlmap workflow [documentation](https://github.com/eQTL-Catalogue/qtlmap/blob/master/docs/usage.md) for more options.
+#SBATCH --time=24:00:00
+#SBATCH -N 1
+#SBATCH --ntasks-per-node=1
+#SBATCH --mem=5G
+#SBATCH --job-name="genimpute"
+#SBATCH --partition=amd
 
-```bash
+# Load needed system tools (Java 8 is required, one of singularity or anaconda - python 2.7 is needed,
+# depending on the method for dependancy management). The exact names of tool modules might depend on HPC.
+module load java-1.8.0_40
+module load python/2.7.15/native
+module load singularity/3.5.3
+module load squashfs/4.4
+
 nextflow run main.nf -profile tartu_hpc\
    --studyFile testdata/multi_test.tsv\
     --vcf_has_R2_field FALSE\
@@ -91,7 +86,22 @@ nextflow run main.nf -profile tartu_hpc\
     --n_batches 25
 ```
 
-If the workflow execution stops some reason, then you can restart it with the -resume options. This ensures that all of the steps have already been completed will not be rerun.
+Now save this script into a file named `run_nextflow.sh` and submit the job to SLURM using sbatch:
+
+```bash
+sbatch run_nextflow.sh
+```
+
+Finally, the following command should start the workflow with the test data. To see the workflow process on screen, you can open the workflow output file with  `tail -f slurm-XXXXXX.out`, where XXXXXX is to job id assigned to Nextflow job by SLURM, eg:
+
+```bash
+tail -f slurm-23146184.out
+```
+
+For more options, see the qtlmap workflow [documentation](https://github.com/eQTL-Catalogue/qtlmap/blob/master/docs/usage.md).
+
+
+If the workflow execution stops some reason, then you can restart it with the -resume options. This ensures that all of the steps have already been completed will not be rerun. Just add the -resume option to the run_nextflow.sh script.
 
 ```bash
 nextflow run main.nf -profile tartu_hpc\
@@ -107,7 +117,7 @@ nextflow run main.nf -profile tartu_hpc\
 
 ## Step 6 - Monitoring progress
 
-You can exit the screen session by pressing `Ctrl + A + D`. To see all of your SLURM jobs that are currently running, use the squeue command:
+To see all of your SLURM jobs that are currently running, use the squeue command:
 
 ```bash
 squeue -u <username>
