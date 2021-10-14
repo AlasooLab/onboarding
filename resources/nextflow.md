@@ -115,7 +115,7 @@ nextflow run main.nf -profile tartu_hpc\
     -resume
 ```
 
-## Step 6 - Monitoring progress
+## Step 5 - Monitoring progress
 
 To see all of your SLURM jobs that are currently running, use the squeue command:
 
