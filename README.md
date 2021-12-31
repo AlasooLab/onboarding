@@ -11,7 +11,7 @@ This repository is home to the onboarding information for the [Alasoo group](htt
 Inspired by a similary repository by the [Greene Lab](https://github.com/greenelab/onboarding)
 
 ## Opinionated list of useful software tools
-
+* if you want to connect to HPC without typing your password everytime check out [this](https://superuser.com/questions/8077/how-do-i-set-up-ssh-so-i-dont-have-to-type-my-password)
 * [Forklift](https://binarynights.com/) - Transfering and editing files over SSH
 * [GitHub Desktop](https://desktop.github.com/) - A good user interface for git.
 * [Spectacle](https://www.spectacleapp.com/) - A good window locator for MacOS
