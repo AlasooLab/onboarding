@@ -37,7 +37,7 @@ cd qtlmap
 Installing Nextflow is [super easy](https://www.nextflow.io/docs/latest/getstarted.html), you just need to make sure beforehand that the correct Java version is available by loading the corrsponding module. Note that rocket.hpc.ut.ee has very strict RAM limits so you might need to log into stage1 (see Step 4) before you are able to install Nextflow.
   
 ```bash
- module load java-1.8.0_40
+ module load any/jdk/1.8.0_265
  wget -qO- https://get.nextflow.io | bash
 ```
 
@@ -71,9 +71,9 @@ Prepare a [SLURM script](https://docs.hpc.ut.ee/cluster/quickstart/) to start Ne
 
 # Load needed system tools (Java 8 is required, one of singularity or anaconda - python 2.7 is needed,
 # depending on the method for dependancy management). The exact names of tool modules might depend on HPC.
-module load java-1.8.0_40
-module load python/2.7.15/native
-module load singularity/3.5.3
+module load any/jdk/1.8.0_265
+module load nextflow
+module load any/singularity/3.5.3
 module load squashfs/4.4
 
 nextflow run main.nf -profile tartu_hpc\
