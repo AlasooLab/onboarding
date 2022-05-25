@@ -7,6 +7,7 @@ This repository is home to the onboarding information for the [Alasoo group](htt
 * [Best Practices for Working with Controlled Access Human Genetic Data](resources/controlled_access_data.md)
 * [Building and using Docker containers with Singularity](resources/building_containers.md)
 * [Introdocution to Nextflow DSL2](https://www.youtube.com/watch?v=-Ne4OP0aiYw&t=422s)
+* [A selection of computational genomics papers](resources/papers.md)
 
 Inspired by a similary repository by the [Greene Lab](https://github.com/greenelab/onboarding)
 
