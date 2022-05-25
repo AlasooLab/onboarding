@@ -1,5 +1,6 @@
 library("readr")
 library("dplyr")
+library("tidyr")
 library("pheatmap")
 
 #Import relatedness results
