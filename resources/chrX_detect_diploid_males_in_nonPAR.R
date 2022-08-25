@@ -6,7 +6,7 @@ is_diploid <- function(vector){
 }
 
 #Import genotypes
-gt_matrix = readr::read_tsv("~/Downloads/chrX.phased.vcf.gz", comment = "##")
+gt_matrix = readr::read_tsv("chrX.phased.vcf.gz", comment = "##")
 gt_mat = gt_matrix[,-c(1:9)]
 
 #Identify deploid genotypes
