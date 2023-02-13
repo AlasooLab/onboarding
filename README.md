@@ -8,6 +8,7 @@ This repository is home to the onboarding information for the [Alasoo group](htt
 * [Building and using Docker containers with Singularity](resources/building_containers.md)
 * [Introdocution to Nextflow DSL2](https://www.youtube.com/watch?v=-Ne4OP0aiYw&t=422s)
 * [A selection of computational genomics papers](resources/papers.md)
+* [Running nf-core workflows at the University of Tartu HPC](resources/nf-core_workflows/run_nf-core_workflows_at_UT_HPC.md)
 
 Inspired by a similary repository by the [Greene Lab](https://github.com/greenelab/onboarding)
 
