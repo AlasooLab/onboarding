@@ -1,3 +1,6 @@
+# If eQTLUtils not yet installed then run
+#remotes::install_github("kauralasoo/eQTLUtils")
+
 library("eQTLUtils")
 library("purrr")
 
@@ -20,4 +23,4 @@ hist(mbv_df$hom_min_dist)
 #Tell-tale sign of a problem is a bimodel distribution on the histogram where 
 # some samples are very close to 0 and others have much higher values. The samples
 # that have close to zero values shoud typically be removed.
-mbv_df = dplyr::filter(mbv_df, het_min_dist > 0.25)
+mbv_df = dplyr::filter(mbv_df, het_min_dist > 0.25)re
