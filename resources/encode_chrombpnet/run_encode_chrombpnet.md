@@ -184,7 +184,7 @@ chr17_4926809_G_A
 ```
 
 > [!NOTE]
-> Adjust the paths in [`modules/chrombpnet.nf`](https://github.com/AlasooLab/onboarding/tree/main/resources/encode_chrombpnet/chrombpnet_variant_scoring/modules/chrombpnet.nf) and [`run_nextflow.sh`](https://github.com/AlasooLab/onboarding/tree/main/resources/encode_chrombpnet/chrombpnet_variant_scoring/modules/run_nextflow.sh) according to you.
+> Adjust the paths in [`modules/chrombpnet.nf`](https://github.com/AlasooLab/onboarding/tree/main/resources/encode_chrombpnet/chrombpnet_variant_scoring/modules/chrombpnet.nf) and [`run_nextflow.sh`](https://github.com/AlasooLab/onboarding/tree/main/resources/encode_chrombpnet/chrombpnet_variant_scoring/run_nextflow.sh) according to you.
 
 Run the variant scoring nextflow workflow.
 
